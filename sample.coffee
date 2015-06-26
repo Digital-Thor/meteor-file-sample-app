@@ -9,6 +9,7 @@
 # Default collection name is 'fs'
 myData = FileCollection({
    resumable: true,     # Enable the resumable.js compatible chunked file upload interface
+   resumableIndexName: 'fci',       # required to reduce size of Mongo index. See: http://stackoverflow.com/questions/31063229
    http: [ { method: 'get', path: '/md5/:md5', lookup: (params, query) -> return { md5: params.md5 }}]}
    # Define a GET API that uses the md5 sum id files
 )
